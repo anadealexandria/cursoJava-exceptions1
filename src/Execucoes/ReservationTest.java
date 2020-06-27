@@ -30,11 +30,11 @@ public class ReservationTest {
 			checkin = data1.parse(input.next());
 			System.out.println("Check-out date (dd/MM/yyyy):");
 			checkout = data1.parse(input.next());
-			Date agora = new Date();
-			if(checkin.before(agora) || checkout.before(agora)) {
-				System.out.println("Error in reservation: Reservation dates for update must be future dates");
+			
+			String error =	primeiro.updateDates(checkin, checkout);
+			if(error != null) {
+				System.out.println(error);
 			}else {
-			primeiro.updateDates(checkin, checkout);
 			System.out.println(primeiro.toString());
 			}
 
